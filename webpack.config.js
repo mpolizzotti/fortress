@@ -8,12 +8,17 @@
  */
 
 // Modules.
-let config, path, srcRoot, distRoot, HtmlWebpackPlugin;
+let config, path, srcRoot, distRoot, webpack, lessLoader,
+    HtmlWebpackPlugin, ExtractTextPlugin, LessAutoPrefixer,
+    LessCleanCSS;
 
 // Paths.
 path = require('path');
 srcRoot = path.join(__dirname, 'src');
 distRoot = path.join(__dirname, 'dist');
+
+// Modules.
+webpack = require('webpack');
 
 // Plugins.
 HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -25,26 +30,25 @@ config = {
 
     // Entry point for the bundle.
     entry: {
-        appJs: ['./js/index.js']
+        appJs: ['./js/app.js']
     },
 
     // Output of compiled files.
     output: {
         path: distRoot,
-        libraryTarget: 'this',
         filename: 'bundle.[name].js',
-        pathinfo: true
     },
 
     // Configuration for webpack development server.
     devServer: {
-        contentBase: distRoot
+        contentBase: './dist'
     },
 
     // Options affecting & loading modules.
     module: {
-        noParse: [],
         loaders: [
+            // Use babel-loader to transpile our es6 code
+            // into es5 compatible code.
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -53,21 +57,24 @@ config = {
         ]
     },
 
-    // Options affecting the resolving of modules.
-    resolve: {
-        alias: {},
-        extensions: ['', '.js']
-    },
-
     // Configuration of plugins.
     plugins: [
+        // Generate index.html file.
+        // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
+            hash: true,
             filename: 'index.html',
             template: path.join(srcRoot, 'index.html'),
             inject: true,
+            cache: true,
             chunks: ['appJs']
         })
-    ]
+    ],
+
+    // Options affecting the resolving of modules.
+    resolve: {
+        extensions: ['', '.js']
+    }
 };
 
 module.exports = config;
