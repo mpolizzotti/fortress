@@ -9,8 +9,7 @@
 
 // Modules.
 let config, path, srcRoot, distRoot, webpack, lessLoader,
-    HtmlWebpackPlugin, ExtractTextPlugin, LessAutoPrefixer,
-    LessCleanCSS;
+    HtmlWebpackPlugin, CleanWebpackPlugin;
 
 // Paths.
 path = require('path');
@@ -22,6 +21,7 @@ webpack = require('webpack');
 
 // Plugins.
 HtmlWebpackPlugin = require('html-webpack-plugin');
+CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // Webpack configuration.
 config = {
@@ -53,12 +53,30 @@ config = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
+            },
+            // The css-loader loads the content of a CSS file,
+            // while the style-loader injects the CSS into the page.
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                loader: 'style-loader!css-loader'
             }
         ]
     },
 
     // Configuration of plugins.
     plugins: [
+        // Clean /dist directory before building.
+        // Order matters in this case. The clean plugin needs
+        // to appear in the top of the plugin list.
+        // https://github.com/johnagan/clean-webpack-plugin
+        new CleanWebpackPlugin(['dist'], {
+            root: __dirname,
+            verbose: true, 
+            dry: false,
+            exclude: []
+        }),
+
         // Generate index.html file.
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({

@@ -1,4 +1,5 @@
 // Pull in css code.
+require('../style/main.css');
 //require('../style/main.less');
 
 // Implementation.
