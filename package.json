@@ -22,8 +22,9 @@
     "webpack-dev-server": "^1.16.1"
   },
   "scripts": {
-    "build": "webpack",
-    "dev:watch": "webpack-dev-server",
+    "build:dev": "webpack",
+    "build:prod": "webpack -p",
+    "watch": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
