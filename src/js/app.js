@@ -1,12 +1,16 @@
-// Pull in css code.
-require('../style/main.css');
-//require('../style/main.less');
+/*eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
+// Pull in inline css & less code.
+require('../style/inline/inline.css');
+require('../style/inline/inline.less');
+
+// Pull in external css & less code.
+require('../style/external/main.less');
 
 // Implementation.
 let login = (username, password) => {
     if (username !== 'admin' || password !== 'radical') {
-        console.log('Incorrect Login');
+        console.warn('Incorrect Login');
     }
-}
+};
 login('admin', 'password');
-console.log('App loaded!');
