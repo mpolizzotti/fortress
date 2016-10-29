@@ -7,19 +7,38 @@
  * http://webpack.github.io/docs/configuration.html
  */
 
-// Modules.
-let config, path, srcRoot, distRoot,
+// Define.
+let config, path, srcRoot, distRoot, nodeModulesRoot, vendors,
     HtmlWebpackPlugin, CleanWebpackPlugin, ExtractTextPlugin;
 
 // Paths.
 path = require('path');
 srcRoot = path.join(__dirname, 'src');
 distRoot = path.join(__dirname, 'dist');
+nodeModulesRoot = path.join(__dirname, 'node_modules');
+
+// Vendor libraries.
+vendors = {
+    'angular': path.join(nodeModulesRoot, 'angular', 'angular.min.js'),
+    'angular-animate': path.join(nodeModulesRoot, 'angular-animate', 'angular-animate.js'),
+    'angular-aria': path.join(nodeModulesRoot, 'angular-aria', 'angular-aria.min.js'),
+    'angular-cookies': path.join(nodeModulesRoot, 'angular-cookies', 'angular-cookies.min.js'),
+    'ui-bootstrap': path.join(nodeModulesRoot, 'angular-ui-bootstrap', 'dist', 'ui-bootstrap-tpls.js')
+};
 
 // Plugins.
 HtmlWebpackPlugin = require('html-webpack-plugin');
 CleanWebpackPlugin = require('clean-webpack-plugin');
 ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+// Helpers.
+function addVendor(name, path) {
+    config.resolve.alias[name] = path;
+    config.module.noParse.push(new RegExp(path));
+    if (config.entry.vendorJs.indexOf(name) === -1) {
+        config.entry.vendorJs.push(name);
+    }
+}
 
 // Webpack configuration.
 config = {
@@ -28,6 +47,7 @@ config = {
 
     // Entry point for the bundle.
     entry: {
+        vendorJs: [],
         appJs: ['./js/app.js']
     },
 
@@ -44,6 +64,7 @@ config = {
 
     // Options affecting & loading modules.
     module: {
+        noParse: [],
         loaders: [
             // Use babel-loader to transpile our es6 code
             // into es5 compatible code.
@@ -122,7 +143,7 @@ config = {
             template: path.join(srcRoot, 'index.html'),
             inject: true,
             cache: true,
-            chunks: ['appJs']
+            chunks: ['appJs', 'vendorJs']
         }),
 
         new ExtractTextPlugin('app.css')
@@ -130,8 +151,14 @@ config = {
 
     // Options affecting the resolving of modules.
     resolve: {
+        alias: {},
         extensions: ['', '.js']
     }
 };
+
+// Dynamically populate the config.entry.vendorJs and config.module.noParse arrays.
+Object.keys(vendors).forEach((name) => {
+    addVendor(name, vendors[name]);
+});
 
 module.exports = config;
