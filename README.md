@@ -1,7 +1,7 @@
 
 # What is Fortress?
 
-Fortress is simply a sandboxed repository for learning the [webpack](http://webpack.github.io/docs/) build tool. As a Software Consultant working for [Unicon](http://www.unicon.net), it is important to consistently review and evaluate emerging technologies. To that end, this repository aims to explore the webpack build tool and its associated plugin ecosystem. Please note, that very little consideration has been given to the compiled application that is generated from this webpack implementation. Again, the purpose of this repository is too explore webpack and to understand how webpack might be leveraged in a real-world application.
+Fortress is a repository for learning the [webpack](http://webpack.github.io/docs/) build tool. This repository provides the webpack code configurations that correspond to [blog posts](https://matthewpolizzotti.com) appearing on [matthewpolizzotti.com](https://matthewpolizzotti.com). Check out the below **Blog Post Code Branches** section for a full list of blog posts and their corresponding code branches.
 
 # Get Started
 
@@ -70,7 +70,18 @@ Run the `npm run start` command. This launches the application using the `webpac
 
 Open a browser window and navigate to *localhost:8080*.
 
-# Command-Line Interface
+# Blog Post Code Branches
 
-* `npm run build` - Build development environment
-* `npm run start` - Watch files & live reload the browser
+Each branch within this repository corresponds to a different blog post.
+
+## Webpack: (Part I) Setup a Basic Build
+
+Follow the below instructions to run the code configuration for the Webpack: (Part I) Setup a Basic Build tutorial.
+
+	cd path/to/fortress
+	git checkout -b webpack-part-1-setup-a-basic-build
+	npm install
+	npm run build
+	npm run start
+
+Open a browser window and navigate to *localhost:8080*.
