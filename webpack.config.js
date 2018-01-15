@@ -17,7 +17,7 @@ module.exports = (env) => {
         context: path.resolve(__dirname, 'src'),
         entry: './js/app.js',
         output: {
-            filename: 'bundle.[name].js',
+            filename: 'bundle.[name].[hash].js',
             path: path.resolve(__dirname, 'dist'),
             pathinfo: (_.has(env, 'dev') && env.dev) ? true : false,
         },
