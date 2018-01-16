@@ -76,10 +76,10 @@ Each branch within this repository corresponds to a different blog post.
 
 ## Webpack: (Part I) Setup a Basic Build
 
-Follow the below instructions to run the code configuration for the Webpack: (Part I) Setup a Basic Build tutorial.
+Follow the below instructions to run the code configuration for the [Webpack: (Part I) Setup a Basic Build](https://matthewpolizzotti.com/2018/01/15/setup-a-basic-build-with-webpack/) tutorial. The below code assumes that you've already cloned the `fortress` repository.
 
 	cd path/to/fortress
-	git checkout webpack-part-1-setup-a-basic-build
+	git checkout -b webpack-part-1-setup-a-basic-build
 	npm install
 	npm run build
 	npm run start
