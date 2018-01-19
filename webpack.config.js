@@ -15,7 +15,10 @@ module.exports = (env) => {
 
     return {
         context: path.resolve(__dirname, 'src'),
-        entry: './js/app.js',
+        entry: {
+            vendor: ['jquery', 'popper.js', 'lodash', 'bootstrap'],
+            app: ['./js/app.js'],
+        },
         output: {
             filename: 'bundle.[name].[hash].js',
             path: path.resolve(__dirname, 'dist'),
@@ -29,6 +32,20 @@ module.exports = (env) => {
                     use: [
                         {
                             loader: 'babel-loader'
+                        }
+                    ]
+                },
+                {
+                    test: /\.(scss)$/,
+                    use: [
+                        {
+                            loader: 'style-loader'
+                        },
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'sass-loader'
                         }
                     ]
                 }

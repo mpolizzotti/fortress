@@ -1,0 +1,14 @@
+// Bootstrap.
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+// Base.
+@import 'base/base';
+
+/* Theme Namespace.
+ * Everything in this stylesheet is scoped (nested) within ".app".
+ * As a best practice, anything added to this stylesheet (that is not a
+ * variable or mixin) should also be scoped within the namespace.
+--------------------------------------*/
+.app {
+    @import 'module/modules';
+}
