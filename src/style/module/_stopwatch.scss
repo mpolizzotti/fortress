@@ -1,0 +1,43 @@
+/* Stopwatch
+-----------------------------------*/
+
+.stopwatch {
+
+    .stopwatch-time {
+        font-size: ($font-size-base * 4);
+        padding: 4rem 0;
+    }
+
+    .stopwatch-controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 4rem 0;
+
+        .control-start {
+            @include outer-circle($color: 'green');
+
+            .start {
+                @include inner-circle($color: 'green');
+            }
+        }
+
+        .control-stop {
+            @include outer-circle($color: 'red');
+
+            .stop {
+                @include inner-circle($color: 'red');
+            }
+
+            display: none;
+        }
+
+        .control-reset {
+            @include outer-circle($color: 'gray');
+
+            .reset {
+                @include inner-circle($color: 'gray');
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+/* Mixins
+-----------------------------------*/
+
+@mixin outer-circle($width: 5rem, $height: 5rem, $color: 'gray-dark') {
+    @include border-radius(50%);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: $width;
+    height: $height;
+    background-color: darken(color($color), 15%);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover, &:focus {
+        background-color: darken(color($color), 30%);
+    }
+}
+
+@mixin inner-circle($width: 4.6rem, $height: 4.6rem, $border: $black, $color: 'gray-dark') {
+    @include border-radius(50%);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: $width;
+    height: $height;
+    border: 2px solid $black;
+    background: transparent;
+    color: lighten(color($color), 35%);
+}

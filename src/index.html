@@ -2,9 +2,46 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Getting Started with Webpack</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Adding SASS to Webpack Build</title>
     </head>
-    <body>
-        <div id="siteWrapper"></div>
+    <body class="app">
+        <!--Header-->
+        <header class="d-flex justify-content-center p-3 border-bottom border-dark nav-header">
+            <span>Stopwatch</span>
+        </header>
+
+        <div class="container">
+            <!--Stopwatch-->
+            <div class="stopwatch">
+                <!--Stopwatch Time-->
+                <div class="d-flex flex-row justify-content-center align-items-stretch stopwatch-time">
+                    <span class="minutes">00</span>
+                    <span>:</span>
+                    <span class="seconds">00</span>
+                    <span>.</span>
+                    <span class="milliseconds">00</span>
+                </div>
+                <!--Stopwatch Controls-->
+                <div class="stopwatch-controls">
+                    <div class="controls-left">
+                        <div class="control-reset" tabindex="0" role="button">
+                            <div class="reset">Reset</div>
+                        </div>
+                    </div>
+                    <div class="controls-right">
+                        <div class="control-start" tabindex="0" role="button">
+                            <div class="start">Start</div>
+                        </div>
+                        <div class="control-stop" tabindex="0" role="button">
+                            <div class="stop">Stop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <footer id="footer" class="footer"></footer>
+        </div>
     </body>
 </html>

@@ -8,8 +8,10 @@
     "clean": "rimraf dist",
     "copy": "cpy src/favicon.ico dist",
     "prebuild": "npm run clean && npm run copy",
+    "prebuild:prod": "npm run clean && npm run copy",
+    "build:prod": "webpack -p --env.prod",
     "build": "webpack --env.dev",
-    "start": "webpack-dev-server --env.dev"
+    "start": "webpack-dev-server -w --env.dev"
   },
   "author": "Matthew Polizzotti",
   "license": "ISC",
