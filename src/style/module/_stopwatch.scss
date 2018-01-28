@@ -8,6 +8,7 @@
         padding: 4rem 0;
     }
 
+    // Default state.
     .stopwatch-controls {
         display: flex;
         flex-direction: row;
@@ -37,6 +38,27 @@
 
             .reset {
                 @include inner-circle($color: 'gray');
+            }
+
+            &.disabled {
+                @include outer-circle($color: 'gray-dark', $disabled: true);
+
+                .reset {
+                    @include inner-circle($color: 'gray-dark');
+                }
+            }
+        }
+    }
+
+    // Stopwatch started.
+    .stopwatch-controls {
+        &.stopwatch-started {
+            .control-start {
+                display: none;
+            }
+
+            .control-stop {
+                display: inline-flex;
             }
         }
     }

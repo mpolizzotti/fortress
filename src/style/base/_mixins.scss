@@ -1,7 +1,7 @@
 /* Mixins
 -----------------------------------*/
 
-@mixin outer-circle($width: 5rem, $height: 5rem, $color: 'gray-dark') {
+@mixin outer-circle($width: 5rem, $height: 5rem, $color: 'gray-dark', $disabled: false) {
     @include border-radius(50%);
     display: inline-flex;
     flex-direction: row;
@@ -9,12 +9,21 @@
     align-items: center;
     width: $width;
     height: $height;
+    text-decoration: none;
     background-color: darken(color($color), 15%);
-    cursor: pointer;
+
+    @if $disabled == false {
+        cursor: pointer;
+    } @else {
+        cursor: default;
+    }
+
     transition: background-color 0.3s ease;
 
-    &:hover, &:focus {
-        background-color: darken(color($color), 30%);
+    @if $disabled == false {
+        &:hover, &:focus {
+            background-color: darken(color($color), 30%);
+        }
     }
 }
 
@@ -29,4 +38,5 @@
     border: 2px solid $black;
     background: transparent;
     color: lighten(color($color), 35%);
+    text-decoration: none;
 }

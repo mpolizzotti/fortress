@@ -13,7 +13,7 @@
 
         <div class="container">
             <!--Stopwatch-->
-            <div class="stopwatch">
+            <div id="stopwatch" class="stopwatch">
                 <!--Stopwatch Time-->
                 <div class="d-flex flex-row justify-content-center align-items-stretch stopwatch-time">
                     <span class="minutes">00</span>
@@ -23,19 +23,19 @@
                     <span class="milliseconds">00</span>
                 </div>
                 <!--Stopwatch Controls-->
-                <div class="stopwatch-controls">
+                <div id="stopwatchControls" class="stopwatch-controls">
                     <div class="controls-left">
-                        <div class="control-reset" tabindex="0" role="button">
+                        <a id="resetButton" class="control-reset disabled" href="#" tabindex="-1" role="button">
                             <div class="reset">Reset</div>
-                        </div>
+                        </a>
                     </div>
                     <div class="controls-right">
-                        <div class="control-start" tabindex="0" role="button">
+                        <a id="startButton" class="control-start" href="#" tabindex="0" role="button">
                             <div class="start">Start</div>
-                        </div>
-                        <div class="control-stop" tabindex="0" role="button">
+                        </a>
+                        <a id="stopButton" class="control-stop" href="#" tabindex="0" role="button">
                             <div class="stop">Stop</div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
