@@ -2,6 +2,14 @@
 -----------------------------------*/
 
 .nav-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    padding: 1rem;
+    border-bottom: 1px solid gray('800');
     background-color: darken(gray('900'), 5%);
     font-size: $font-size-lg;
 }

@@ -4,8 +4,17 @@
 .footer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    padding: 1rem 1rem;
-    font-size: .75rem;
-    color: color('gray');
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    padding: 1rem;
+    border-top: 1px solid gray('800');
+    background-color: darken(gray('900'), 5%);
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+
+    p {
+        margin: 0;
+    }
 }

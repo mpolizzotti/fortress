@@ -1,11 +1,11 @@
 // Bootstrap overrides.
-@import 'overrides/_overrides';
+@import 'overrides/overrides';
 
 // Bootstrap.
 @import 'node_modules/bootstrap/scss/bootstrap';
 
 // Base.
-@import 'base/_base';
+@import 'base/base';
 
 /* Theme Namespace.
  * Everything in this stylesheet is scoped (nested) within ".app".
@@ -13,5 +13,5 @@
  * variable or mixin) should also be scoped within the namespace.
 --------------------------------------*/
 .app {
-    @import 'module/_modules';
+    @import 'module/modules';
 }

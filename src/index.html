@@ -6,8 +6,10 @@
         <title>Adding SASS to Webpack Build</title>
     </head>
     <body class="app">
-        <!--Header-->
-        <header class="d-flex justify-content-center p-3 border-bottom border-dark nav-header">
+        <!--Header
+        d-flex justify-content-center p-3 border-bottom border-dark
+        -->
+        <header class=" fixed-top nav-header">
             <span>Stopwatch</span>
         </header>
 
@@ -15,7 +17,7 @@
             <!--Stopwatch-->
             <div id="stopwatch" class="stopwatch">
                 <!--Stopwatch Time-->
-                <div class="d-flex flex-row justify-content-center align-items-stretch stopwatch-time">
+                <div class="stopwatch-time">
                     <span class="minutes">00</span>
                     <span>:</span>
                     <span class="seconds">00</span>
@@ -39,9 +41,9 @@
                     </div>
                 </div>
             </div>
-
-            <!--Footer-->
-            <footer id="footer" class="footer"></footer>
         </div>
+
+        <!--Footer-->
+        <footer id="footer" class="fixed-bottom footer"></footer>
     </body>
 </html>
