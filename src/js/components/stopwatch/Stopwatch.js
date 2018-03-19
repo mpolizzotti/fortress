@@ -3,9 +3,6 @@ import {Timer} from './Timer';
 
 const MODULE_NAME = 'app.components.stopwatch';
 
-/**
-* The Stopwatch class...
- */
 export class Stopwatch {
 
     constructor() {

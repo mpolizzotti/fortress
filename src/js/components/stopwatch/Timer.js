@@ -6,6 +6,7 @@ export class Timer {
 
     constructor(timeNode) {
         this.timeNode = timeNode;
+        this.timeNode.innerText = `00:00:00`;
         this.time = null;
         this.times = [ 0, 0, 0 ];
         this.started = false;
@@ -38,6 +39,7 @@ export class Timer {
 
     reset() {
         this.stop();
+        this.timeNode.innerText = `00:00:00`;
         this.times = [ 0, 0, 0 ];
         this.render();
     }
@@ -75,7 +77,8 @@ export class Timer {
             this.times[1] = (this.times[1] - 60);
         }
 
-        console.log('Time: ', this.times[0], ':', this.times[1], ':', this.times[2]);
+        this.times[2] = Math.floor(this.times[2]);
+        this.times[2] = ( this.times[2] < 0 ) ? 0 : this.times[2];
     }
 
     render() {
@@ -83,14 +86,14 @@ export class Timer {
     }
 
     format(times) {
-        let template = `${this.addLeadingZero(times[0])}:${this.addLeadingZero(times[1])}:${this.addLeadingZero(Math.floor(times[2]))}`;
+        let template = `${this.addLeadingZero(times[0])}:${this.addLeadingZero(times[1])}:${this.addLeadingZero(times[2])}`;
         return template;
     }
 
     addLeadingZero(value) {
         let result = value;
 
-        if (result <= 9) {
+        if (result >= 0 && result <= 9) {
             result = `0${result}`;
         }
 

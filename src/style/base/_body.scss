@@ -1,5 +1,14 @@
 /* Body
 -----------------------------------*/
+html, body {
+  background: $black;
+}
 body {
   position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+  &.ready {
+    opacity: 1;
+  }
 }

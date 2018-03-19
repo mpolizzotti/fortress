@@ -20,8 +20,8 @@
         align-content: center;
 
         .stopwatch-time {
-            flex: 0 0 17rem;
-            font-size: ($font-size-base * 4);
+            font-family: monospace;
+            font-size: ($font-size-base * 5);
         }
     }
 
