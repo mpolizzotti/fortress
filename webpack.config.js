@@ -14,6 +14,7 @@ module.exports = (env) => {
     }
 
     return {
+        mode: 'development',
         context: path.resolve(__dirname, 'src'),
         entry: {
             vendor: ['jquery', 'popper.js', 'lodash', 'bootstrap'],
