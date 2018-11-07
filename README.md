@@ -1,4 +1,3 @@
-
 # What is Fortress?
 
 Fortress is a repository for learning the [webpack](http://webpack.github.io/docs/) build tool. This repository provides the webpack code configurations that correspond to [blog posts](https://matthewpolizzotti.com) appearing on [matthewpolizzotti.com](https://matthewpolizzotti.com). Check out the below **Blog Post Code Branches** section for a full list of blog posts and their corresponding code branches.
@@ -60,6 +59,7 @@ Run the `npm build` command. This runs the `webpack` command.
     npm build
 
 ### Launch Application
+
 To preview the compiled application, open a terminal window and navigate to the root of your project.
 
     cd path/to/fortress
@@ -74,14 +74,14 @@ Open a browser window and navigate to *localhost:8080*.
 
 Each branch within this repository corresponds to a different blog post.
 
-## Webpack: (Part I) Setup a Basic Build
+## Getting Started with Webpack 3
 
-Follow the below instructions to run the code configuration for the [Webpack: (Part I) Setup a Basic Build](https://matthewpolizzotti.com/2018/01/15/setup-a-basic-build-with-webpack/) tutorial. The below code assumes that you've already cloned the `fortress` repository.
+Follow the below instructions to run the code configuration for the [Getting Started with Webpack 3](https://github.com/mpolizzotti/fortress/tree/getting-started-with-webpack-3) tutorial. The below code assumes that you've already cloned the `fortress` repository.
 
-	cd path/to/fortress
-	git checkout -b webpack-part-1-setup-a-basic-build
-	npm install
-	npm run build
-	npm run start
+    cd path/to/fortress
+    git checkout -b getting-started-with-webpack-3
+    npm install
+    npm run build
+    npm run start
 
 Open a browser window and navigate to *localhost:8080*.
